@@ -12,7 +12,7 @@ A simple command-line Java program that hides a text message inside an image usi
 2. **Payload Bits (Remaining pixels):** Replaces the least significant bit (`& 0xFFFFFFFE`) of each pixel's blue channel with 1 bit of message data. Changing a channel value by at most `1` is visually imperceptible, and `.png` lossless compression keeps the modified bits intact.
 
 ## Compile and Run
-Open a terminal in your `Stego` folder and run:
+Open a terminal in your folder and run:
 
 ```powershell
 javac EncodeImage.java DecodeImage.java
