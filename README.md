@@ -1,5 +1,5 @@
 # Java_PBL-Steganography
-# Java_PBL-Steganography
+
 # Image LSB Steganography (Java)
 
 A simple command-line Java program that hides a text message inside an image using **Least Significant Bit (LSB) steganography** on the blue color channel and extracts it back out.
