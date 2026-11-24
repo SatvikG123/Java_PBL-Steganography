@@ -51,16 +51,16 @@ Bits 15..8  : Green channel (8 bits, 0–255)
 Bits  7..0  : Blue channel  (8 bits, 0–255)  <-- Bit 0 (LSB) is modified
 ```
 
-- **Bit Insertion (Encoding):** To write a single bit $b \in \{0, 1\}$ into the least significant bit of the blue channel without disturbing the upper 31 bits:
+- **Bit Insertion (Encoding):** To write a single bit `b` (`0` or `1`) into the least significant bit of the blue channel without disturbing the upper 31 bits:
 
-$$\text{updatedRGB} = (\text{rgb} \ \& \ \text{0xFFFFFFFE}) \ | \ (b \ \& \ 1)$$
+  `updatedRGB = (rgb & 0xFFFFFFFE) | (b & 1)`
 
-The bitmask `0xFFFFFFFE` (`11111111_11111111_11111111_11111110` in binary) clears bit `0` to `0`, and bitwise OR (`|`) sets it to `b`.
+  The bitmask `0xFFFFFFFE` (`11111111_11111111_11111111_11111110` in binary) clears bit `0` to `0`, and bitwise OR (`|`) sets it to `b`.
 
 - **Bit Extraction (Decoding):**
 
-$$\text{extractedBit} = \text{rgb} \ \& \ 1$$
-
+  `extractedBit = rgb & 1`
+  
 ### 3.2 Linear Pixel Addressing
 Pixels are traversed sequentially in row-major order (left-to-right, top-to-bottom). A linear pixel index $i \ge 0$ maps to 2D image coordinates $(x, y)$ as:
 $$x = i \bmod \text{width}, \qquad y = \left\lfloor \frac{i}{\text{width}} \right\rfloor$$
